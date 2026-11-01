@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Week 1: Think Like a Marketer – Ikigai School of AI</title>
+<style>
+:root{--bg:#F6F7FB;--surface:#FFFFFF;--ink:#14183A;--muted:#54597A;--line:#D5D8E8;--accent:#1F2FA8;--hi:#F5B700;--hi-ink:#14183A;--ok:#14794A;--warn:#B3341F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1030;--surface:#151A45;--ink:#EEF0FF;--muted:#A7ACD6;--line:#2C3370;--accent:#8EA2FF;--hi:#F5B700;--ok:#4BD08F;--warn:#FF8A73}}
+:root[data-theme="dark"]{--bg:#0C1030;--surface:#151A45;--ink:#EEF0FF;--muted:#A7ACD6;--line:#2C3370;--accent:#8EA2FF;--hi:#F5B700;--ok:#4BD08F;--warn:#FF8A73}
+*{box-sizing:border-box}html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,6vw,4rem)}h2{font-size:clamp(1.6rem,3.5vw,2.4rem)}h3{font-size:1.2rem}
+p{margin:0 0 1em;max-width:68ch}a{color:var(--accent)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;align-items:center;padding-top:10px;padding-bottom:10px}
+nav b{font-family:Georgia,serif;margin-right:auto;white-space:nowrap}
+nav a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:6px;font-size:.9rem}
+nav a:hover,nav a:focus-visible{color:var(--ink);background:var(--surface)}
+:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center;padding-top:40px}
+.hero small{color:var(--muted)}
+.mark{background:linear-gradient(transparent 58%,var(--hi) 58%);padding:0 .1em}
+#stage3d{position:relative;aspect-ratio:1/1;max-height:520px;width:100%}
+#stage3d canvas{width:100%!important;height:100%!important;display:block;border-radius:16px}
+.btn{display:inline-block;border:2px solid var(--ink);background:var(--hi);color:var(--hi-ink);font:inherit;font-weight:700;padding:10px 18px;border-radius:10px;cursor:pointer;text-decoration:none;margin:0 8px 8px 0}
+.btn.ghost{background:transparent;color:var(--ink)}
+.stages{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.stages button{font:inherit;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+.stages button[aria-pressed="true"]{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+#stageCap{min-height:3.2em;border-left:4px solid var(--hi);padding-left:12px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{font:inherit;cursor:pointer;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:8px 14px}
+.tabs button[aria-selected="true"]{border-color:var(--ink);background:var(--hi);color:var(--hi-ink);font-weight:700}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cols h3{font-size:1rem;color:var(--muted);font-family:inherit}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:2px 16px}
+summary{cursor:pointer;font-weight:700;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";color:var(--accent);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+.ex{border-left:4px solid var(--hi);padding:2px 12px;color:var(--muted);margin:0 0 14px}
+label{display:block;font-weight:600;margin:12px 0 4px;font-size:.95rem}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:9px 11px}
+textarea{min-height:64px;resize:vertical}
+.out{background:var(--bg);border:2px dashed var(--accent);border-radius:12px;padding:14px;margin-top:14px;min-height:60px}
+.flag{color:var(--warn);font-size:.92rem;margin:6px 0 0}.good{color:var(--ok)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}th{background:var(--surface)}
+.scroll{overflow-x:auto}
+.rule{background:var(--warn);color:#fff;border-radius:12px;padding:14px 18px;font-weight:700;margin-bottom:20px}
+.bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden;margin:8px 0 14px}.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+.chk input{width:22px;height:22px;margin-top:3px;flex:none}
+.cnt{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
+.cnt button{font:inherit;width:34px;height:34px;border-radius:8px;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);cursor:pointer}
+.cnt span{min-width:64px;text-align:center;font-weight:700}
+.q{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.q div{perspective:600px}
+.q .card{transition:transform .25s;transform-style:preserve-3d}
+.q .card:hover{transform:rotateX(6deg) rotateY(-6deg) translateZ(8px)}
+footer{padding:40px 0;color:var(--muted);border-top:1px solid var(--line);font-size:.9rem}
+@media (max-width:820px){.hero,.two,.cols,.q{grid-template-columns:1fr}section{padding:44px 0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Ikigai School of AI</b><a href="#plan">Week plan</a><a href="#concepts">Concepts</a><a href="#lab">Live lab</a><a href="#practical">Practical task</a></div></nav>
+
+<main>
+<section class="hero wrap">
+ <div>
+  <p><small>Digital Marketing, Basic level. Week 1</small></p>
+  <h1>Think like a marketer <span class="mark">before</span> you touch AI.</h1>
+  <p>This week you learn to look at any business and trace the line from customer to action. Your first drafts are written by hand, with no AI.</p>
+  <a class="btn" href="#plan">See the week plan</a><a class="btn ghost" href="#practical">Open the practical task</a>
+ </div>
+ <div>
+  <div id="stage3d" aria-label="3D stack of the six marketing stages"></div>
+  <div class="stages" id="stageBtns" role="group" aria-label="Pick a stage"></div>
+  <p id="stageCap" aria-live="polite">Tap a stage to lift it out of the stack.</p>
+ </div>
+</section>
+
+<section id="plan"><div class="wrap">
+ <h2>The week in six classes</h2>
+ <p>A suggested split. Move topics between days to fit your batch timings.</p>
+ <div class="tabs" role="tablist" id="dayTabs"></div>
+ <div class="card" id="dayBody" role="tabpanel"></div>
+</div></section>
+
+<section id="concepts"><div class="wrap">
+ <h2>Concepts, one at a time</h2>
+ <p>Open each concept as your teacher reaches it. Try to answer the question before you read the example.</p>
+ <div id="conceptList"></div>
+</div></section>
+
+<section id="lab"><div class="wrap">
+ <h2>Live lab</h2>
+ <p>Use a real business you know, such as a café, a gym or a coaching institute. Work along with your teacher.</p>
+ <div class="two">
+  <div class="card">
+   <h3>Positioning builder</h3>
+   <label for="p1">Target audience</label><input id="p1" placeholder="20–30-year-old college students in Lucknow">
+   <label for="p2">Brand</label><input id="p2" placeholder="Brew Corner">
+   <label for="p3">Category</label><input id="p3" placeholder="study-friendly café">
+   <label for="p4">Key benefit</label><input id="p4" placeholder="gives you a quiet table and fast Wi-Fi for long study sessions">
+   <label for="p5">Reason to believe</label><input id="p5" placeholder="every table has a charging point and the café is silent after 4 PM">
+   <div class="out" id="posOut">Fill in the five boxes to build your statement.</div>
+   <div id="posFlags"></div>
+  </div>
+  <div class="card">
+   <h3>Copy framework workbench</h3>
+   <label for="fw">Framework</label>
+   <select id="fw" style="width:100%;font:inherit;padding:9px;border-radius:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)"></select>
+   <div id="fwFields"></div>
+   <div class="out" id="fwOut">Your copy appears here.</div>
+   <p id="fwCount" style="margin:8px 0 0;color:var(--muted)"></p>
+  </div>
+ </div>
+ <h3 style="margin-top:34px">Competitor gap analysis (example)</h3>
+ <p>Synthetic practice data. Replace it with your own research in the practical task.</p>
+ <div class="scroll"><table>
+  <tr><th>Area</th><th>Competitor A</th><th>Competitor B</th><th>Opportunity</th></tr>
+  <tr><td>Price</td><td>₹999</td><td>₹1,499</td><td>Mid-range</td></tr>
+  <tr><td>Support</td><td>Low</td><td>Medium</td><td>Personal support</td></tr>
+  <tr><td>Content</td><td>Basic</td><td>Good</td><td>Better education</td></tr>
+  <tr><td>Positioning</td><td>Generic</td><td>Premium</td><td>Niche positioning</td></tr>
+  <tr><td>Reviews</td><td>Mixed</td><td>Good</td><td>Stronger proof</td></tr>
+ </table></div>
+</div></section>
+
+<section id="practical"><div class="wrap">
+ <h2>Your Week 1 practical task</h2>
+ <div class="rule">No AI for the first draft. Write it yourself first, then compare.</div>
+ <p>Choose one real business. Tick each step as you finish it. Your progress is saved on this device.</p>
+ <div class="two">
+  <div class="card"><h3>Steps</h3><div id="steps"></div><div class="bar"><i id="stepBar"></i></div><p id="stepTxt" style="margin:0"></p></div>
+  <div class="card"><h3>Copy counter</h3><p style="color:var(--muted)">Tap + each time you finish one piece of copy.</p><div id="counters"></div><div class="bar"><i id="cntBar"></i></div><p id="cntTxt" style="margin:0"></p></div>
+ </div>
+ <h3 style="margin-top:34px">Deliverables to submit</h3>
+ <div class="card"><div id="deliv"></div><div class="bar"><i id="delBar"></i></div><p id="delTxt" style="margin:0"></p></div>
+ <h3 style="margin-top:34px">Ask these six questions before you create anything</h3>
+ <div class="q" id="six"></div>
+ <p style="margin-top:28px"><b>AI starts in Week 3.</b> Tools you will meet then: ChatGPT, Claude, Perplexity and Canva. They support your marketing thinking and do not replace it.</p>
+</div></section>
+</main>
+<footer><div class="wrap">Ikigai School of AI, Kaizen Center, Lucknow. Next up: Week 2, Manual Copywriting &amp; Creative Skills.</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+let store={};try{store=JSON.parse(localStorage.getItem("w1")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("w1",JSON.stringify(store))}catch(e){}};
+
+/* ---------- stages + 3D ---------- */
+const STAGES=[["Customer","Who exactly are we trying to reach? “Everyone” is not an answer."],["Problem","What functional and emotional problem does this person have?"],["Offer","Why should they choose this, not just what is being sold?"],["Positioning","How should the brand be remembered in the customer’s mind?"],["Message","Which words and framework carry the value across?"],["Action","What should the customer do next? Buy, book, click or register."]];
+let active=0,group,discs=[],renderer,scene,camera;
+const sb=$("#stageBtns");
+STAGES.forEach((s,i)=>{const b=document.createElement("button");b.textContent=s[0];b.setAttribute("aria-pressed",i===0);b.onclick=()=>pick(i);sb.appendChild(b)});
+function pick(i){active=i;[...sb.children].forEach((b,j)=>b.setAttribute("aria-pressed",j===i));$("#stageCap").textContent=STAGES[i][0]+": "+STAGES[i][1]}
+pick(0);
+(function init3d(){
+ try{
+  const box=$("#stage3d");
+  renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));box.appendChild(renderer.domElement);
+  scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(40,1,.1,100);camera.position.set(0,2.2,8.5);camera.lookAt(0,0,0);
+  scene.add(new THREE.AmbientLight(0xffffff,.7));const dl=new THREE.DirectionalLight(0xffffff,.9);dl.position.set(4,6,5);scene.add(dl);
+  group=new THREE.Group();scene.add(group);
+  const cols=[0x1F2FA8,0x3347D1,0x5468F0,0x7B8BFF,0xF5B700,0xFFD24D];
+  STAGES.forEach((s,i)=>{
+   const r=2.5-i*.34;const g=new THREE.CylinderGeometry(r,r*.88,.34,48);
+   const m=new THREE.MeshStandardMaterial({color:cols[i],roughness:.45,metalness:.1,transparent:true,opacity:.92});
+   const d=new THREE.Mesh(g,m);d.position.y=1.6-i*.46;
+   d.add(new THREE.LineSegments(new THREE.EdgesGeometry(g),new THREE.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.5})));
+   d.userData.y=d.position.y;group.add(d);discs.push(d)});
+  const size=()=>{const w=box.clientWidth,h=box.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()};
+  size();addEventListener("resize",size);
+  let mx=0,my=0;box.addEventListener("pointermove",e=>{const r=box.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5});
+  const still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  (function loop(t){
+   requestAnimationFrame(loop);
+   group.rotation.y=still?.5:t*.0004+mx*1.2;group.rotation.x=my*.35;
+   discs.forEach((d,i)=>{const up=i===active?.9:0;d.position.y+=(d.userData.y+up-d.position.y)*.12;
+    d.material.opacity=i===active?1:.78;d.scale.setScalar(i===active?1.06:1)});
+   renderer.render(scene,camera)})(0);
+ }catch(e){const b=$("#stage3d");if(b)b.style.display="none"}
+})();
+
+/* ---------- week plan ---------- */
+const DAYS=[
+["Day 1","Fundamentals and the marketing flow",["What digital marketing is and the main channels","The flow from product to optimization","A beautiful ad cannot fix a bad offer"],"Map one local café through the full marketing flow on the board.","Draw the flow for your chosen business."],
+["Day 2","Target audience and customer problems",["Replace “everyone” with a specific audience","Functional problem, emotional problem, desired outcome","What is the customer actually buying?"],"Turn “running shoes for everyone” into a specific audience, then build the problem map.","Write your audience profile and customer problem map."],
+["Day 3","Positioning and offer",["The positioning formula","Product versus offer","Strong offer: product + benefit + value + proof + CTA"],"Fill in the positioning builder below with a class volunteer’s business.","Write your positioning statement and your offer."],
+["Day 4","Competitor research and gap analysis",["Questions to ask about any competitor","Research competitors, do not copy them","Finding the opportunity gap"],"Research one competitor live from its public pages and fill one gap row together.","Analyse 3 competitors and find at least 3 opportunities."],
+["Day 5","Copywriting and the four frameworks",["Content gets attention, copy drives action","AIDA, PAS, 4Ps, Before–After–Step","Writing headlines"],"Write one offer in AIDA, then in PAS, and compare the two.","Start your swipe file: 5 copies in each framework, 10 headlines."],
+["Day 6","Practical, review and submission",["Finish all deliverables, still without AI","Peer review in pairs","Check against the deliverables list"],"Review one student’s positioning statement as a class, using the checks below.","Submit your Week 1 deliverables."]];
+const dt=$("#dayTabs"),db=$("#dayBody");
+DAYS.forEach((d,i)=>{const b=document.createElement("button");b.textContent=d[0];b.setAttribute("role","tab");b.onclick=()=>showDay(i);dt.appendChild(b)});
+function showDay(i){[...dt.children].forEach((b,j)=>b.setAttribute("aria-selected",j===i));const d=DAYS[i];
+ db.innerHTML="<h3>"+d[0]+": "+d[1]+"</h3><div class='cols'><div><h3>Learn</h3><ul>"+d[2].map(x=>"<li>"+x+"</li>").join("")+"</ul></div><div><h3>Live demo</h3><p>"+d[3]+"</p></div><div><h3>Your task today</h3><p>"+d[4]+"</p></div></div>"}
+showDay(0);
+
+/* ---------- concepts ---------- */
+const CON=[
+["What is digital marketing?","Using digital channels to attract, engage, convert, measure and optimize.","It is not just posting on Instagram. It is a system that moves a person from awareness to action across website, search, social, YouTube, email, paid ads and messaging."],
+["The marketing ecosystem","Product → audience → problem → positioning → offer → content → traffic → conversion → measurement → optimization.","A beautiful advertisement cannot fix a bad offer."],
+["Target audience","Be specific about who you want to reach.","Weak: “running shoes for everyone.” Better: “lightweight running shoes for 20–35-year-old urban professionals who run 5–10 km.”"],
+["Customer problems and needs","People buy solutions, benefits, outcomes and experiences.","Gym: functional problem “I am gaining weight”, emotional problem “I don’t feel confident”, outcome “I want to be fit and confident.”"],
+["Positioning","How you want the brand to be remembered in the customer’s mind.","Café A is affordable, Café B is premium specialty coffee, Café C is the best place to study and work. The product is similar, the positioning is not."],
+["Offer creation","The product is what you sell. The offer is why they should choose it.","“10-week course” becomes “10-week programme + live projects + AI tools + Google Ads + Meta Ads + portfolio.”"],
+["Competitor research","Know who else serves your customer, and how.","Look at what they sell, who they target, price, content, and what customers like and complain about. Research competitors, do not copy them."],
+["Gap analysis","Compare competitors to find where the opportunity is.","Ask: what can we do differently or better? See the gap table in the live lab."],
+["Content versus copy","Content educates, informs and entertains. Copy persuades and drives action.","Content: “5 ways to improve your Instagram content.” Copy: “Want better results? Book a free content audit today.”"],
+["AIDA","Attention → Interest → Desire → Action.","Attention: “Still spending on ads without getting leads?” Action: “Book a free strategy call.”"],
+["PAS","Problem → Agitate → Solution.","Problem: clicks but few leads. Agitate: you spend daily without knowing where people drop off. Solution: a conversion-focused audit."],
+["4Ps","Promise → Picture → Proof → Push.","State the result, help the customer see it, give a reason to believe, then give a reason to act now."],
+["Before → After → Step","Where the customer is, where they want to be, how to get there.","Before: struggling to get leads. After: a predictable flow of qualified leads. Step: start with a conversion-focused strategy."]];
+$("#conceptList").innerHTML=CON.map(c=>"<details><summary>"+c[0]+"</summary><p>"+c[1]+"</p><p class='ex'>"+c[2]+"</p></details>").join("");
+
+/* ---------- positioning builder ---------- */
+const P=["p1","p2","p3","p4","p5"];
+function pos(){const v=P.map(id=>$("#"+id).value.trim());
+ if(v.some(x=>!x)){$("#posOut").textContent="Fill in the five boxes to build your statement.";$("#posFlags").innerHTML="";return}
+ $("#posOut").textContent="For "+v[0]+", "+v[1]+" is the "+v[2]+" that "+v[3]+" because "+v[4]+".";
+ const f=[];const all=v.join(" ").toLowerCase();
+ if(/\b(everyone|everybody|all people|anyone)\b/.test(all))f.push("Audience is too broad. Name who they are.");
+ if(/\b(best|quality|good|great|affordable)\b/.test(v[3].toLowerCase()))f.push("The benefit sounds generic. What result does the customer get?");
+ if(v[4].split(/\s+/).length<5)f.push("The reason to believe is thin. Add something a customer could check.");
+ $("#posFlags").innerHTML=f.length?f.map(x=>"<p class='flag'>• "+x+"</p>").join(""):"<p class='flag good'>Good start. Now test it: could a competitor say the same sentence?</p>"}
+P.forEach(id=>$("#"+id).addEventListener("input",pos));
+
+/* ---------- framework workbench ---------- */
+const FW={"AIDA":[["Attention","Grab attention with a question or bold line"],["Interest","Create curiosity"],["Desire","Show the desired outcome"],["Action","Tell them what to do"]],
+"PAS":[["Problem","Name the problem"],["Agitate","Show the cost of leaving it"],["Solution","Offer the way out"]],
+"4Ps":[["Promise","What result are you offering?"],["Picture","Help them visualize it"],["Proof","Why should they believe you?"],["Push","Reason to act now"]],
+"Before–After–Step":[["Before","Where is the customer today?"],["After","Where do they want to be?"],["Step","How will they get there?"]]};
+const sel=$("#fw");Object.keys(FW).forEach(k=>sel.add(new Option(k,k)));
+function fwBuild(){const k=sel.value;$("#fwFields").innerHTML=FW[k].map((s,i)=>"<label for='f"+i+"'>"+s[0]+"</label><textarea id='f"+i+"' placeholder='"+s[1]+"'></textarea>").join("");
+ FW[k].forEach((s,i)=>$("#f"+i).addEventListener("input",fwOut));fwOut()}
+function fwOut(){const t=FW[sel.value].map((s,i)=>$("#f"+i).value.trim()).filter(Boolean).join(" ");
+ $("#fwOut").textContent=t||"Your copy appears here.";const w=t?t.split(/\s+/).length:0;$("#fwCount").textContent=w+" words. Read it aloud: would you act on it?"}
+sel.onchange=fwBuild;fwBuild();
+
+/* ---------- practical: steps, counters, deliverables ---------- */
+function checklist(host,items,key,barId,txtId,label){
+ const st=store[key]||(store[key]=[]);
+ $(host).innerHTML=items.map((t,i)=>"<label class='chk'><input type='checkbox' data-i='"+i+"'"+(st[i]?" checked":"")+"><span>"+t+"</span></label>").join("");
+ const upd=()=>{const n=st.filter(Boolean).length;$(barId).style.width=(n/items.length*100)+"%";$(txtId).textContent=n+" of "+items.length+" "+label};
+ $(host).addEventListener("change",e=>{st[+e.target.dataset.i]=e.target.checked;save();upd()});upd()}
+checklist("#steps",["Define the target audience","Identify the customer problem: functional, emotional, desired outcome","Create a positioning statement","Research 3 competitors","Create a competitor gap analysis with at least 3 opportunities","Create an offer","Write the copy and headlines (use the counter)"],"steps","#stepBar","#stepTxt","steps done");
+checklist("#deliv",["Target audience profile","Customer problem map","Positioning statement","Offer","3 competitor analysis","Competitor gap analysis","20 framework-based copies","10 headlines","Copywriting swipe file"],"deliv","#delBar","#delTxt","deliverables ready");
+const CN=[["AIDA copies",5],["PAS copies",5],["4Ps copies",5],["Before–After–Step copies",5],["Headlines",10]];
+const cv=store.cnt||(store.cnt=CN.map(()=>0));
+function cnt(){$("#counters").innerHTML=CN.map((c,i)=>"<div class='cnt'><span style='text-align:left;flex:1'>"+c[0]+"</span><button aria-label='Remove one "+c[0]+"' data-i='"+i+"' data-d='-1'>−</button><span>"+cv[i]+" / "+c[1]+"</span><button aria-label='Add one "+c[0]+"' data-i='"+i+"' data-d='1'>+</button></div>").join("");
+ const tot=CN.reduce((a,c,i)=>a+Math.min(cv[i],c[1]),0),max=CN.reduce((a,c)=>a+c[1],0);
+ $("#cntBar").style.width=(tot/max*100)+"%";$("#cntTxt").textContent=tot+" of "+max+" pieces written"}
+$("#counters").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const i=+b.dataset.i;cv[i]=Math.max(0,cv[i]+ +b.dataset.d);save();cnt()});cnt();
+$("#six").innerHTML=[["Who?","Who is the customer?"],["Why?","What problem do they have?"],["What?","What are we offering?"],["Why us?","Why should they choose us?"],["How?","How will we communicate the value?"],["Action?","What should they do next?"]].map(q=>"<div><div class='card'><h3>"+q[0]+"</h3><p style='margin:0'>"+q[1]+"</p></div></div>").join("");
+</script>
+</body>
+</html>
